@@ -10,6 +10,9 @@
         body{
             padding-top: 48px;
         }
+        .is-complete{
+           text-decoration: line-through; 
+        }
     </style>
 </head>
 <body>
