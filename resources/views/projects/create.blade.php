@@ -8,14 +8,14 @@
 
         <div class="field">
             <label for="title" class="label">Title</label>
-        <input type="text" class="input {{ $errors->has('title') ? 'is-danger': '' }}" name="title" value="{{ old('title') }}" placeholder="Project Title" >
+        <input type="text" class="input {{ $errors->has('title') ? 'is-danger': '' }}" name="title" value="{{ old('title') }}" placeholder="Project Title" required>
         </div>
 
         <div class="field">
             <label for="title" class="label">Description</label>
             
             <div class="control">
-                <textarea name="desc" placeholder="Project Description" class="textarea {{ $errors->has('title') ? 'is-danger': '' }}">{{ old('desc') }}</textarea>
+                <textarea name="desc" placeholder="Project Description" class="textarea {{ $errors->has('title') ? 'is-danger': '' }}" required>{{ old('desc') }}</textarea>
             </div>
         </div>
 
@@ -27,15 +27,7 @@
         </div>
 
 
-        @if ($errors->any())
-            <div class="notification is-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        @include('errors')
     </form>
 
 @endsection()
