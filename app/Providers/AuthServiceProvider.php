@@ -4,7 +4,6 @@ namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Contracts\Auth\Access\Gate;
-
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 
@@ -29,11 +28,11 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
         
         $gate->before(function($user){
-            return $user->id === 2;
+            return $user->id == 2;
         });
 
-        // Gate::before(function($user){
-        //     return $user->id == 2;
-        // });
+        /* Gate::before(function($user){
+            return $user->id == 2;
+        }); */
     }
 }

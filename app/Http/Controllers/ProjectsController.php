@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Project;
 
-// use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
 {
@@ -21,15 +21,21 @@ class ProjectsController extends Controller
         return view('projects.index', compact('projects'));
     }
 
+    public function show(Project $project){
+        // abort_unless(auth()->user()->owns($project), 403);
+        // if($project->owner_id !== auth()->id()){
+        //     abort(403);
+        // }
+        // $this->authorize('update', $project);
+        // abort_unless(\Gate::allows('update', $project), 403);
+
+        return view('projects.show', compact('project'));
+    }
+
     public function create() {
         return view('projects.create');
     }
 
-    public function show(Project $project){
-        // abort_unless(auth()->user()->owns($project), 403);
-
-        return view('projects.show', compact('project'));
-    }
 
     public function edit(Project $project) {
         return view('projects.edit', compact('project'));
